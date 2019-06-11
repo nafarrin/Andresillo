@@ -1,0 +1,31 @@
+
+
+{
+	"jsonrpc":"2.0",
+	"result":[
+		{"marketId":"1.157185815",
+		"marketName":"Moneyline",
+		"marketStartTime":"2019-04-06T18:00:00.000Z",
+		"totalMatched":0.0,
+		"runners":[
+			{"selectionId":12509654,
+			"runnerName":"Mondeville Ladies",
+			"handicap":0.0,
+			"sortPriority":1,
+			"metadata":{
+				"runnerId":"12509654"}
+			},
+			{"selectionId":23649163,
+			"runnerName":"Landerneau Bretagne Basket Lad",
+			"handicap":0.0,
+			"sortPriority":2,
+			"metadata":{
+				"runnerId":"23649163"
+			}
+            }
+        ],
+          "eventType":{
+            "id":"7522",
+            "name":"Basketball"},
+          "competition":{"id":"10543894","name":"French LFB"},"event":{"id":"29220605","name":"Mondeville Ladies v Landerneau Bretagne Basket Lad","countryCode":"GB","timezone":"GMT","openDate":"2019-04-06T18:00:00.000Z"}}],"id":1}'
+

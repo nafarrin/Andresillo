@@ -1,0 +1,189 @@
+!(function () {
+
+    var advertiserId = "5c7cebb28e105b0001a2756d";
+    var pixelId = "5c7cf44c8e105b0001a27570";
+    var advUid = "";
+
+    var XMLHttpFactories = [
+        function () { return new XMLHttpRequest() },
+        function () { return new ActiveXObject("Msxml3.XMLHTTP") },
+        function () { return new ActiveXObject("Msxml2.XMLHTTP.6.0") },
+        function () { return new ActiveXObject("Msxml2.XMLHTTP.3.0") },
+        function () { return new ActiveXObject("Msxml2.XMLHTTP") },
+        function () { return new ActiveXObject("Microsoft.XMLHTTP") }
+    ];
+
+    function createXMLHTTPObject() {
+        var xmlhttp = false;
+        for (var i = 0; i < XMLHttpFactories.length; i++) {
+            try {
+                xmlhttp = XMLHttpFactories[i]();
+            }
+            catch (e) {
+                continue;
+            }
+            break;
+        }
+        return xmlhttp;
+    }
+
+
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)", "i"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+
+    function processDataLayer() {
+
+        var isHomePage = false;
+        var hasDeposited = false;
+        var constructedDL = []
+        var object;
+        var pathname = window.location.pathname;
+        var homePageRegex = /\/([a-zA-Z]{2,3})\/?$/
+        var emailVerificationRegex = /\/([a-zA-Z]{2})\/emailverification\.(htm|html)$/
+        var homePageResult = pathname.match(homePageRegex)
+        var emailVerificationResult = pathname.match(emailVerificationRegex);
+        
+        if(pathname.indexOf("/days-menu/Horse+Racing/Cheltenham/") > -1) {
+            object = { pageCategory: "horse racing", "pageType": "category", "event": "sportPageView", "currencyCode": "GBP", "languageCode": pathname.split("/")[1], "subcategory": "cheltenham"};
+        }
+        else if(pathname.indexOf("days-menu/Horse+Racing/") > -1) {
+            object = { pageCategory: "horse racing", "pageType": "category", "event": "sportPageView", "currencyCode": "GBP", "languageCode": pathname.split("/")[1], "subcategory": ""};
+        }
+
+        if(emailVerificationResult !== null && emailVerificationResult.length > 0) {
+            object = { "pageType": "registration", "event": "registration", "currencyCode": "GBP", "languageCode": emailVerificationResult[1] };
+        }
+        else if (homePageResult !== null && homePageResult.length > 0) {
+            for (var e in dataLayer) {
+                var ev = dataLayer[e];
+                if (ev.event !== typeof "undefined" && ev.event !== null && ev.event == "VISIT_PAGE") {
+                    isHomePage = true;
+                }
+                else if (ev.event !== typeof "undefined" && ev.event !== null && ev.event == "DEPOSIT") {
+                    hasDeposited = true;
+                }
+            }
+
+            if (isHomePage && hasDeposited) {
+                object = { "pageType": "conversion", "event": "deposit", "revenue": 20, "currencyCode": "GBP", "languageCode": homePageResult[1] };
+            }
+            else if (isHomePage) {
+                object = { "pageType": "home", "event": "home", "currencyCode": "GBP", "languageCode": homePageResult[1] };
+            }
+        }
+        else {
+            var topLevelSportRegex = /\/(.*)\/betting\/(Football)\/?$/
+            var topLevelSportResult = pathname.match(topLevelSportRegex);
+            var countrySportsRegex = /\/(.*)\/betting\/(Football)\/(England)\/?$/
+            var countryLevelSportsResult = pathname.match(countrySportsRegex);
+            var competitionLevelRegex = /\/(.*)\/betting\/(Football)\/(England)\/(Premier\+League)\/?$/
+            var competitionLevelResult = pathname.match(competitionLevelRegex);
+            var fixtureLevelRegex = /\/(.*)\/betting\/(Football)\/(England)\/(Premier\+League)\/(.*)\/?$/
+            var fixtureLevelResult = pathname.match(fixtureLevelRegex);
+
+            if (topLevelSportResult !== null && topLevelSportResult.length > 0) {
+                object = { "pageType": "category", "event": "sportPageView", "currencyCode": "GBP", "languageCode": topLevelSportResult[1], "pageCategory": topLevelSportResult[2] };
+            }
+            else if (countryLevelSportsResult !== null && countryLevelSportsResult.length > 0) {
+                object = { "pageType": "category", "event": "sportCountryView", "currencyCode": "GBP", "languageCode": countryLevelSportsResult[1], "pageCategory": countryLevelSportsResult[2], "subcategory": countryLevelSportsResult[3] };
+            }
+            else if (competitionLevelResult !== null && competitionLevelResult.length > 0) {
+                object = { "pageType": "category", "event": "competitionView", "currencyCode": "GBP", "languageCode": competitionLevelResult[1], "pageCategory": competitionLevelResult[2], "subcategory": competitionLevelResult[3], "subcategory2": competitionLevelResult[4].replace("+", " ") };
+            }
+            else if (fixtureLevelResult !== null && fixtureLevelResult.length > 0) {
+                var fixtureDetails = fixtureLevelResult[5];
+                var splitDetails = fixtureDetails.split("+-+");
+                var homeTeam, awayTeam, sku;
+
+                if(splitDetails.length > 0) {
+                    sku = splitDetails[1];
+                    var teamDetails  = splitDetails[0].split("vs");
+
+                    if(teamDetails.length > 0) {
+                        homeTeam = teamDetails[0].replace(/\+/g, ' ').trim();
+                        awayTeam = teamDetails[1].replace(/\+/g, ' ').trim();
+                    }
+                }
+                object = { "pageType": "product", "event": "productView", "currencyCode": "GBP", "languageCode": fixtureLevelResult[1], "pageCategory": fixtureLevelResult[2], "subcategory": fixtureLevelResult[3], "subcategory2": fixtureLevelResult[4].replace("+", " "), "homeTeam": homeTeam, "awayTeam": awayTeam, "sku": sku};
+            }
+        }
+
+        if ("undefined" != typeof object && object !== null) {
+            constructedDL.push(object);
+            generateEvents(constructedDL);
+        }
+    }
+
+    function generateEvents(dataLayerDelta) {
+
+        if (dataLayerDelta.length == 0) {
+            return;
+        }
+
+        try {
+
+            var queryString = "ev=scrape&advid=" + advertiserId + "&ad=" + pixelId + "&advuid=" + advUid + "&";
+            try { queryString += "loc=" + encodeURIComponent(document.location.toString()) + "&"; } catch (e) { }
+            try { queryString += "ref=" + encodeURIComponent(document.referrer.toString()) + "&"; } catch (e) { }
+            queryString += "x=" + new Date().getTime().toString();
+
+            var url = "https://insight.reflow.tv/log/ad?" + queryString;
+            //var url = "http://localhost:8086/log/ad?" + queryString;
+            var body = btoa(JSON.stringify(dataLayerDelta));
+
+            var req = createXMLHTTPObject();
+            req.withCredentials = true;
+
+            req.onreadystatechange = function () {
+                if (req.readyState === XMLHttpRequest.DONE && req.status === 200) {
+
+                    var el = document.createElement("iframe");
+                    el.frameBorder = 0;
+                    el.scrolling = "no";
+                    el.marginWidth = 0;
+                    el.marginHeight = 0;
+                    el.hspace = 0;
+                    el.vspace = 0;
+                    el.seamless = true;
+                    el.style.cssText = "display: none; visibility: hidden;";
+
+                    document.body.appendChild(el);
+
+                    el.contentWindow.document.open();
+                    el.contentWindow.document.write(req.responseText);
+                    el.contentWindow.document.close();
+
+                }
+            };
+
+            req.open("POST", url, true);
+            req.setRequestHeader("Accept", "text/html");
+            req.send(body);
+
+
+
+        } catch (e) {
+            console.error(e);
+        }
+
+    }
+
+    if (document.readyState === "interactive" || document.readyState === "complete") {
+        processDataLayer();
+    } else {
+        document.onreadystatechange = function () {
+            if (document.readyState === "interactive" || document.readyState === "complete") {
+                processDataLayer();
+            }
+        };
+    }
+
+}());

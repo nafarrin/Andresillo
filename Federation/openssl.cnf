@@ -1,0 +1,16 @@
+[ ssl_client ]
+basicConstraints = CA:FALSE
+nsCertType = client
+keyUsage = digitalSignature, keyEncipherment
+extendedKeyUsage = clientAuth
+
+
+[req]
+distinguished_name = req_distinguished_name
+[req_distinguished_name]
+C = US
+ST = VA
+L = SomeCity
+O = MyCompany
+OU = MyDivision
+CN = www.company.com

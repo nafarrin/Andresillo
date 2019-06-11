@@ -1,0 +1,3 @@
+{"jsonrpc":"2.0","result":[{"eventType":{"id":"1","name":"Soccer"},"marketCount":1150},{"eventType":{"id":"2","name":"Tennis"},"marketCount":92},{"eventType":{"id":"7522","name":"Basketball"},"marketCount":30},{"eventType":{"id":"2378961","name":"Politics"},"marketCount":2}],"id":1}
+{"jsonrpc":"2.0","result":[],"id":1}
+{"jsonrpc":"2.0","result":[],"id":1}
