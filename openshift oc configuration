@@ -1,0 +1,46 @@
+C:\Users\j.navarro\Downloads\oc-4.1.2-windows>oc login https://api.starter-us-east-1.openshift.com
+Authentication required for https://api.starter-us-east-1.openshift.com:443 (openshift)
+Username: juan-8
+Password:
+Login successful.
+
+You have one project on this server: "myselenium"
+
+Using project "myselenium".
+Welcome! See 'oc help' to get started.
+
+
+app-root) sh-4.2$ wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
+--2019-06-25 15:40:26--  https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
+Resolving github.com (github.com)... 192.30.253.112
+Connecting to github.com (github.com)|192.30.253.112|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://github-production-release-asset-2e65be.s3.amazonaws.com/25354393/113b5380-234f-11e9-8f1e-2eff36d0eff4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20190625%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190625T154026Z&X-Amz-Expires=300&X-Amz-Signature=52cc4fc2fe8b1b8f874aee5358bb47cf8d949f777320777422e74c772d6232d4&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dgeckodriver-v0.24.0-linux64.tar.gz&response-content-type=application%2Foctet-stream [following]
+--2019-06-25 15:40:27--  https://github-production-release-asset-2e65be.s3.amazonaws.com/25354393/113b5380-234f-11e9-8f1e-2eff36d0eff4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20190625%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190625T154026Z&X-Amz-Expires=300&X-Amz-Signature=52cc4fc2fe8b1b8f874aee5358bb47cf8d949f777320777422e74c772d6232d4&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dgeckodriver-v0.24.0-linux64.tar.gz&response-content-type=application%2Foctet-stream
+Resolving github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... 52.216.21.163
+Connecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.216.21.163|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2896664 (2.8M) [application/octet-stream]
+Saving to: ‘geckodriver-v0.24.0-linux64.tar.gz’
+
+100%[===================================================================================================================>] 2,896,664   --.-K/s   in 0.02s
+
+2019-06-25 15:40:27 (130 MB/s) - ‘geckodriver-v0.24.0-linux64.tar.gz’ saved [2896664/2896664]
+
+(app-root) sh-4.2$ tar -xvzf geckodriver*
+geckodriver
+(app-root) sh-4.2$ chmod +x geckodriver
+(app-root) sh-4.2$ export PATH=$PATH:/geckodriver/.
+
+**********************Selenium driver************************
+https://github.com/nieuwer/selenium-openshift-templates
+
+C:\Users\j.navarro\Downloads\oc-4.1.2-windows>oc create -f ..\selenium-openshift-templates-master\selenium-hub.yaml
+template.template.openshift.io/selenium-hub created
+
+C:\Users\j.navarro\Downloads\oc-4.1.2-windows>oc create -f ..\selenium-openshift-templates-master\selenium-node-chrome.yaml
+template.template.openshift.io/selenium-node-chrome created
+
+C:\Users\j.navarro\Downloads\oc-4.1.2-windows>oc create -f ..\selenium-openshift-templates-master\selenium-node-firefox.yaml
+template.template.openshift.io/selenium-node-firefox created
+
