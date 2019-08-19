@@ -4,9 +4,13 @@ import datetime
 import pendulum
 
 aliases = {
+    "ene": ["1"],
     "jun":["6"],
     "ago":["8"],
-    "sep": ["9"]
+    "sep": ["9"],
+    "oct": ["10"],
+    "nov": ["11"]
+
 }
 
 

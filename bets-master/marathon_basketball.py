@@ -61,7 +61,7 @@ def selenium():
         browser.get(BOOKIE_URL)
         # WebDriverWait(browser, timeout=10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='today-member-name nowrap ']")))
         WebDriverWait(browser, timeout=10).until(
-            EC.presence_of_element_located((By.XPATH, "//div[@class=' coupon-row']")))
+            EC.presence_of_element_located((By.XPATH, "//div[@class='bg coupon-row']")))
         # dates = getDates(browser.page_source)
         # elements = browser.find_elements_by_xpath("//div[@class='today-member-name nowrap ']")
         elements = browser.find_elements_by_xpath("//div[@class=' coupon-row']")

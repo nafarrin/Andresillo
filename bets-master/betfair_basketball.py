@@ -3,25 +3,20 @@
 # Usage: favbet.py 
 # https://www.favbet.com/en/bets/#tour=17745&event=4198442
 
-import json
-import os
-import re
-import sys
-import util
-import string
-import pendulum
-import re
 import datetime
-
-from bs4 import BeautifulSoup
+import re
 from contextlib import closing
-from selenium.webdriver import Firefox # pip install selenium
-from selenium.webdriver import Chrome # pip install selenium
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.action_chains import ActionChains
+
+import pendulum
+import util
+from bs4 import BeautifulSoup
 from date_management import *
+from selenium.webdriver import Firefox  # pip install selenium
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
+
 def main():
   try:
     fd = open("betfair_basket.csv", "w")
@@ -197,6 +192,7 @@ def cleanDate(date):
     elif pattern_date.match(date):
       day , month, game_time = date.split(" ")
       hour, minute = game_time.split(":")
+
       date = str(pendulum.local(today.year, int(aliases[month][0]), int(day), int(hour), int(minute)))
       #date = "Hoy a las " + date
   else:
