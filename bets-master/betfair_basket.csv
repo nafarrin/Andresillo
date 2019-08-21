@@ -1,25 +1,23 @@
 ID,Local, Visitor, Date, 1., 2.
-San Miguel Beermen,Rain Or Shine,2019-08-02T14:24:09.618872+02:00,2.5,1.45
-Mandurah Magic Women,Rockingham Flames Women,2019-08-02T14:24:09.626851+02:00,11.0,1.005
-Lakeside Lightning Women,Kalamunda Eastern Suns Women,2019-08-02T14:24:09.634829+02:00,1.2,4.0
-Toowoomba Mountaineers Women,Southern District Spartans Women,2019-08-02T14:24:09.652818+02:00,,
-Tianjin University of finance and economic Women,CSU Women,2019-08-02T14:24:09.662792+02:00,1.61,2.15
-Henan Phoenix Women,Tianjin Golden Lions Women,2019-08-02T00:00:00+02:00,1.28,3.4
-Rusia,Nigeria,2019-08-31T14:00:00+02:00,1.08,7.0
+Batangas Batangas,UPHSD Altas,2019-08-20T10:39:32.791477+02:00,,
+LPU Pirates,SBC Red Lions,2019-08-20T10:39:32.801418+02:00,1.7,2.0
+Basilan Steel,Navotas Clutch,2019-08-20T10:39:32.808399+02:00,1.005,11.0
+Canadá,Nueva Zelanda,2019-08-20T00:00:00+02:00,1.25,3.5
+Cote d'Ivoire,China,2019-08-31T15:00:00+02:00,9.5,1.04
+Rusia,Nigeria,2019-08-31T14:00:00+02:00,1.56,2.35
 Polonia,Venezuela,2019-08-31T14:00:00+02:00,1.08,7.0
-Argentina,Korea Republic,2019-08-31T14:00:00+02:00,,16.0
-España,Túnez,2019-08-31T14:00:00+02:00,,50.0
+Argentina,Korea Republic,2019-08-31T14:00:00+02:00,1.001,16.0
+España,Túnez,2019-08-31T14:00:00+02:00,1.0,50.0
 Irán,Puerto Rico,2019-08-31T14:00:00+02:00,3.8,1.24
-Angola,Serbia,2019-08-31T14:00:00+02:00,50.0,
+Angola,Serbia,2019-08-31T14:00:00+02:00,50.0,1.0
 Philippines,Italia,2019-08-31T14:00:00+02:00,15.0,1.002
-Cote d'Ivoire,China,2019-08-31T14:00:00+02:00,9.5,1.04
-Chequia,EEUU,2019-09-01T14:00:00+02:00,50.0,
-Turquía,Japón,2019-09-01T14:00:00+02:00,,15.0
+Chequia,EEUU,2019-09-01T14:00:00+02:00,50.0,1.0
+Turquía,Japón,2019-09-01T14:00:00+02:00,1.002,15.0
 Grecia,Montenegro,2019-09-01T14:00:00+02:00,1.08,7.0
 Nueva Zelanda,Brasil,2019-09-01T14:00:00+02:00,8.0,1.06
 Dominican Republic,Jordan,2019-09-01T14:00:00+02:00,1.08,7.0
-Francia,Alemania,2019-09-01T14:00:00+02:00,1.12,6.0
-Canadá,Australia,2019-09-01T14:00:00+02:00,2.9,1.38
+Francia,Alemania,2019-09-01T14:00:00+02:00,1.13,5.5
+Canadá,Australia,2019-09-01T14:00:00+02:00,3.0,1.36
 Senegal,Lithuania,2019-09-01T14:00:00+02:00,16.0,
 BC Khimki,Maccabi Tel Aviv,2019-10-03T19:00:00+02:00,1.52,2.45
 FC Bayern Munchen,Olimpia Milano,2019-10-03T20:30:00+02:00,2.45,1.52
@@ -30,3 +28,33 @@ Anadolu Efes,FC Barcelona,2019-10-04T19:30:00+02:00,1.9,1.84
 ALBA Berlin,Zenit San Petesburgo,2019-10-04T20:00:00+02:00,1.45,2.65
 Panathinaikos,Crvena Zvezda Belgrade,2019-10-04T20:30:00+02:00,1.13,5.5
 Valencia BC,CSKA Moscú,2019-10-04T21:00:00+02:00,3.3,1.32
+New Orleans Pelicans,@ Toronto Raptors,2019-10-23T02:10:00+02:00,2.6,1.42
+Los Angeles Lakers,@ Los Angeles Clippers,2019-10-23T04:40:00+02:00,1.9,1.8
+Chicago Bulls,@ Charlotte Hornets,2019-10-24T01:10:00+02:00,1.75,1.95
+Detroit Pistons,@ Indiana Pacers,2019-10-24T01:10:00+02:00,2.35,1.52
+Cleveland Cavaliers,@ Orlando Magic,2019-10-24T01:10:00+02:00,3.3,1.28
+Boston Celtics,@ Philadelphia 76ers,2019-10-24T01:40:00+02:00,2.9,1.35
+Minnesota Timberwolves,@ Brooklyn Nets,2019-10-24T01:40:00+02:00,2.6,1.42
+Memphis Grizzlies,@ Miami Heat,2019-10-24T01:40:00+02:00,3.3,1.28
+New York Knicks,@ San Antonio Spurs,2019-10-24T02:40:00+02:00,4.0,1.2
+Washington Wizards,@ Dallas Mavericks,2019-10-24T02:40:00+02:00,3.5,1.25
+Oklahoma City Thunder,@ Utah Jazz,2019-10-24T03:10:00+02:00,4.5,1.16
+Denver Nuggets,@ Portland Trail Blazers,2019-10-24T04:10:00+02:00,1.95,1.75
+Sacramento Kings,@ Phoenix Suns,2019-10-24T04:10:00+02:00,1.75,1.95
+Atlanta Hawks,@ Detroit Pistons,2019-10-25T01:10:00+02:00,2.15,1.62
+Milwaukee Bucks,@ Houston Rockets,2019-10-25T02:10:00+02:00,2.05,1.68
+Los Angeles Clippers,@ Golden State Warriors,2019-10-25T04:40:00+02:00,1.9,1.8
+Toronto Raptors,@ Boston Celtics,2019-10-26T01:10:00+02:00,2.35,1.52
+Minnesota Timberwolves,@ Charlotte Hornets,2019-10-26T01:10:00+02:00,1.62,2.15
+New York Knicks,@ Brooklyn Nets,2019-10-26T01:40:00+02:00,3.3,1.28
+Dallas Mavericks,@ New Orleans Pelicans,2019-10-26T02:10:00+02:00,2.2,1.6
+Washington Wizards,@ Oklahoma City Thunder,2019-10-26T02:10:00+02:00,2.9,1.35
+Chicago Bulls,@ Memphis Grizzlies,2019-10-26T02:10:00+02:00,2.0,1.7
+Phoenix Suns,@ Denver Nuggets,2019-10-26T03:10:00+02:00,6.0,1.09
+Portland Trail Blazers,@ Sacramento Kings,2019-10-26T04:10:00+02:00,1.9,1.8
+Utah Jazz,@ Los Angeles Lakers,2019-10-26T04:40:00+02:00,2.2,1.6
+Boston Celtics,@ Toronto Raptors,2019-12-25T18:10:00+01:00,2.15,1.62
+Milwaukee Bucks,@ Philadelphia 76ers,2019-12-25T20:40:00+01:00,2.2,1.6
+Houston Rockets,@ Golden State Warriors,2019-12-25T23:10:00+01:00,1.95,1.75
+Los Angeles Clippers,@ Los Angeles Lakers,2019-12-26T02:10:00+01:00,1.8,1.9
+New Orleans Pelicans,@ Denver Nuggets,2019-12-26T04:40:00+01:00,4.0,1.2

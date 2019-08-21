@@ -1,6 +1,6 @@
 import db_connection
-import betfair_all
-import marathon_all
+import betfair_basketball
+import marathon_basketball
 
 #Get bets from web bookies
 def get_web_bookies ():
@@ -42,11 +42,11 @@ if __name__ == "__main__":
    #TBD
     """3.- Scrap bets"""
     try:
-        betfair_all.main()
+        betfair_basketball.main()
     except:
         print ("Error betfair")
     try:
-        marathon_all.main()
+        marathon_basketball.main()
     except:
         print ("Error Marathon")
 
